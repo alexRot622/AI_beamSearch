@@ -1,10 +1,11 @@
 import random, math
 from _functools import reduce
-from copy import copy
+from copy import copy, deepcopy
 from builtins import isinstance
 from resource import setrlimit, RLIMIT_AS, RLIMIT_DATA
 
 import sys
+from itertools import product
 from heapq import heappush, heappop
 
 class NPuzzle:
@@ -119,14 +120,9 @@ class NPuzzle:
             if h(top) == 0:
                 return (discovered[top.__hash__()], top)
 
-            if h(top) < minhtop:
-                minhtop = h(top)
-                best = top
-
             for node in filter(must_update, top.neighbours()):
                 heappush(frontier, (cost + h(node), node))
                 discovered[node.__hash__()] = cost
-            steps += 1
 
         return None
 
@@ -207,8 +203,6 @@ class NPuzzle:
         if not succ or len(visited) + min(B, len(succ)) > limit:
             return None
 
-        print("visited:", len(visited))
-
         if discrepancy == 0:
             next_level = []
             for i in range(min(B, len(succ))):
@@ -260,18 +254,175 @@ class NPuzzle:
     def __hash__(self):
         return hash(tuple(self.r))
 
-MLIMIT = 6 * 10 ** 9 # 6 GB RAM limit
+
+class TowersOfHanoi:
+    def __init__(self, towerCount, discCount, discs=[], moves=[]):
+        self.towerCount = towerCount
+        self.discCount = discCount
+        if discs:
+            self.discs = deepcopy(discs)
+        else:
+            self.discs = [[i for i in range(discCount - 1, -1, -1)]] + [[] for i in range(towerCount - 1)]
+        if moves:
+            self.moves = copy(moves)
+        else:
+            self.moves = []
+
+    def move_inplace(self, src, dest):
+        self.discs[dest].append(self.discs[src].pop())
+
+        self.moves.append((src, dest))
+        return self
+
+    def move(self, src, dest):
+        if src > self.towerCount or dest > self.towerCount or src < 0 or dest < 0:
+            return None
+        if src == dest or not self.discs[src]:
+            return None
+        if self.discs[dest] and self.discs[src][-1] > self.discs[dest][-1]:
+            return None
+        if len(self.discs[dest]) > self.discCount:
+            return None
+
+        return self.clone().move_inplace(src, dest)
+
+    def distanceHeuristic(self):
+        return sum(map(lambda d : sum([(i+1) for i in range(len(d))]), self.discs[:-1]))
+
+    def neighbours(self):
+        filledTowers = list(filter(lambda n : self.discs[n], range(self.towerCount)))
+        moves = product(filledTowers, range(self.towerCount))
+        return list(filter(lambda x : x, [self.move(i, j) for (i, j) in moves]))
+
+    def display(self):
+        for i in range(self.discCount):
+            for j in range(self.towerCount):
+                if (self.discCount - i - 1) < len(self.discs[j]):
+                    print(self.discs[j][self.discCount - i - 1], end='  ')
+                else:
+                    print('|', end='  ')
+            print('')
+        print(self.towerCount * '---')
+
+    def astar(self, h):
+        # Frontier, represented as a heap of tuples (cost + heuristic, node)
+        frontier = []
+        heappush(frontier, (h(self), self))
+        discovered = {self.__hash__(): 0}
+
+        # function for filtering nodes that need to be visited
+        must_update = lambda x: x.__hash__() not in discovered or cost < discovered[x.__hash__()]
+
+        best = self
+        while frontier:
+            _, top = heappop(frontier)
+            cost = discovered[top.__hash__()] + 1
+
+            if h(top) == 0:
+                return (discovered[top.__hash__()], top)
+
+            for node in filter(must_update, top.neighbours()):
+                heappush(frontier, (cost + h(node), node))
+                discovered[node.__hash__()] = cost
+
+        return None
+
+
+    @staticmethod
+    def blds_iteration(level, discrepancy, B, h, visited, limit):
+        succ = []
+
+        for s in level:
+            for n in s.neighbours():
+                score = h(n)
+                if score == 0:
+                    return (score, n)
+                elif n.__hash__() not in visited:
+                    heappush(succ, (score, n))
+
+        if not succ or len(visited) + min(B, len(succ)) > limit:
+            return None
+
+        print("VISITED", len(visited))
+
+        if discrepancy == 0:
+            next_level = []
+            for i in range(min(B, len(succ))):
+                _, node = heappop(succ)
+                next_level.append(node)
+
+            next_visited = visited.union(map(TowersOfHanoi.__hash__, next_level))
+            return TowersOfHanoi.blds_iteration(next_level, 0, B, h, next_visited, limit)
+        else:
+            explored = B
+            b_level = []
+            for i in range(B):
+                _, node = heappop(succ)
+                b_level.append(node)
+            while explored < len(succ):
+                n = min(len(succ) - explored, B)
+                next_level = []
+                for i in range(n):
+                    _, node = heappop(succ)
+                    next_level.append(node)
+                next_visited = visited.union(map(TowersOfHanoi.__hash__, next_level))
+                val = TowersOfHanoi.blds_iteration(next_level, discrepancy - 1, B, h, next_visited, limit)
+                if val:
+                    return val
+                explored += len(next_level)
+            b_visited = visited.union(map(TowersOfHanoi.__hash__, b_level))
+            return TowersOfHanoi.blds_iteration(b_level, discrepancy, B, h, b_visited, limit)
+
+
+    def blds(self, h, B, limit):
+        visited = {self.__hash__()}
+        discrepancy = 0
+        for i in range(10):
+            print("DISC", discrepancy)
+            solution = TowersOfHanoi.blds_iteration([self], discrepancy, B, h, visited, limit)
+            if solution:
+                return solution
+            discrepancy += 1
+
+    def clone(self):
+        return TowersOfHanoi(self.towerCount, self.discCount, self.discs, self.moves)
+
+    def __eq__(self, other):
+        return self.discs == other.discs
+    def __lt__(self, other):
+        return True
+    def __hash__(self):
+        return hash(tuple([tuple(d) for d in self.discs]))
+
+MLIMIT = 8 * 10 ** 9 # 8 GB RAM limit
 setrlimit(RLIMIT_DATA, (MLIMIT, MLIMIT))
 sys.setrecursionlimit(100000)
 
-f = open("files/problems4.txt", "r")
-input = f.readlines()
-f.close()
-problems = [NPuzzle.read_from_line(line) for line in input]
-solution = problems[0].blds(NPuzzle.heuristic_manhattan, 1000, 100000000)
-
+t = 4
+d = 8
+hanoi = TowersOfHanoi(t, d)
+solution = hanoi.blds(TowersOfHanoi.distanceHeuristic, 100, 1000000)
+#solution = hanoi.astar(TowersOfHanoi.distanceHeuristic)
 if solution:
+    _, solved = solution
     print("SOLUTION: ", len(solved.moves), "steps")
-    solved.display_moves()
+    s = TowersOfHanoi(t, d)
+    for m in solved.moves:
+        s.move_inplace(*m)
+        s.display()
 else:
     print("NO SOLUTION FOUND")
+
+#f = open("files/problems4.txt", "r")
+#input = f.readlines()
+#f.close()
+#problems = [NPuzzle.read_from_line(line) for line in input]
+#solution = problems[0].blds(NPuzzle.heuristic_manhattan, 1000, 100000000)
+#
+#if solution:
+#    _, solved = solution
+#    print("SOLUTION: ", len(solved.moves), "steps")
+#    solved.display_moves()
+#else:
+#    print("NO SOLUTION FOUND")
+
