@@ -129,12 +129,12 @@ class NPuzzle:
     def beamSearch(self, B, h, limit):
         beam = {self}
         visited = {self.__hash__()}
-        check_discovered = lambda s: s.__hash__() not in visited and s not in beam
+        check_visited = lambda s: s.__hash__() not in visited
 
         while beam and len(visited) < limit:
             succ = []
             for s in beam:
-                for n in filter(check_discovered, s.neighbours()):
+                for n in filter(check_visited, s.neighbours()):
                     heappush(succ, (h(n), n))
 
             score, best = heappop(succ)
@@ -400,29 +400,29 @@ sys.setrecursionlimit(100000)
 
 t = 4
 d = 8
-hanoi = TowersOfHanoi(t, d)
-solution = hanoi.blds(TowersOfHanoi.distanceHeuristic, 100, 1000000)
+#hanoi = TowersOfHanoi(t, d)
+#solution = hanoi.blds(TowersOfHanoi.distanceHeuristic, 100, 1000000)
 #solution = hanoi.astar(TowersOfHanoi.distanceHeuristic)
-if solution:
-    _, solved = solution
-    print("SOLUTION: ", len(solved.moves), "steps")
-    s = TowersOfHanoi(t, d)
-    for m in solved.moves:
-        s.move_inplace(*m)
-        s.display()
-else:
-    print("NO SOLUTION FOUND")
-
-#f = open("files/problems4.txt", "r")
-#input = f.readlines()
-#f.close()
-#problems = [NPuzzle.read_from_line(line) for line in input]
-#solution = problems[0].blds(NPuzzle.heuristic_manhattan, 1000, 100000000)
-#
 #if solution:
 #    _, solved = solution
 #    print("SOLUTION: ", len(solved.moves), "steps")
-#    solved.display_moves()
+#    s = TowersOfHanoi(t, d)
+#    for m in solved.moves:
+#        s.move_inplace(*m)
+#        s.display()
 #else:
 #    print("NO SOLUTION FOUND")
+
+f = open("files/problems4.txt", "r")
+input = f.readlines()
+f.close()
+problems = [NPuzzle.read_from_line(line) for line in input]
+solution = problems[0].beamSearch(100, NPuzzle.heuristic_manhattan, 100000000)
+
+if solution:
+    _, solved = solution
+    print("SOLUTION: ", len(solved.moves), "steps")
+    solved.display_moves()
+else:
+    print("NO SOLUTION FOUND")
 
