@@ -7,6 +7,8 @@ from resource import setrlimit, RLIMIT_AS, RLIMIT_DATA
 import sys
 from itertools import product
 from heapq import heappush, heappop
+from statistics import mean, variance
+import time
 
 class NPuzzle:
     """
@@ -118,7 +120,7 @@ class NPuzzle:
             cost = discovered[top.__hash__()] + 1
 
             if h(top) == 0:
-                return (discovered[top.__hash__()], top)
+                return (len(discovered), discovered[top.__hash__()], top)
 
             for node in filter(must_update, top.neighbours()):
                 heappush(frontier, (cost + h(node), node))
@@ -137,9 +139,14 @@ class NPuzzle:
                 for n in filter(check_visited, s.neighbours()):
                     heappush(succ, (h(n), n))
 
+            if not succ:
+                print('No successors left')
+                return None
+
             score, best = heappop(succ)
             if score == 0:
-                return (len(best.moves), best)
+                print('visited:', len(visited))
+                return (len(visited), len(best.moves), best)
 
             selected = {best}
             for i in range(min(len(succ), B - 1)):
@@ -152,7 +159,7 @@ class NPuzzle:
         return None
 
     def glds_iteration(self, discrepancy, h, visited, limit):
-        print("visited:", len(visited))
+        #print("visited:", len(visited))
         succ = []
         for s in self.neighbours():
             score = h(s)
@@ -181,12 +188,46 @@ class NPuzzle:
 
         discrepancy = 0
         while True:
+            print(discrepancy)
             solution = self.glds_iteration(discrepancy, h, visited, limit)
             if solution:
                 return solution
             discrepancy += 1
 
         return None
+
+    def ggg(self, h, limit):
+        discrepancy = 0
+        while True:
+            print('DISC', discrepancy)
+            stack = [(self, discrepancy, set())]
+            while stack:
+                state, d, visited = stack.pop()
+                succ = []
+
+                for s in state.neighbours():
+                    score = h(s)
+                    if score == 0:
+                        return (score, s)
+                    if s.__hash__() not in visited:
+                        heappush(succ, (score, s))
+
+                if not succ or len(visited) > limit:
+                    continue
+
+                _, best = heappop(succ)
+                if d == 0:
+                    stack.append((best, d, visited.union({best.__hash__()})))
+                if d > 0:
+                    tovisit = []
+                    while succ:
+                        _, s = heappop(succ)
+                        tovisit.append((s, d - 1, visited.union({s.__hash__()})))
+                    print([h(s[0]) for s in tovisit])
+                    while tovisit:
+                        stack.append(tovisit.pop())
+
+            discrepancy += 1
 
     @staticmethod
     def blds_iteration(level, discrepancy, B, h, visited, limit):
@@ -394,35 +435,73 @@ class TowersOfHanoi:
     def __hash__(self):
         return hash(tuple([tuple(d) for d in self.discs]))
 
-MLIMIT = 8 * 10 ** 9 # 8 GB RAM limit
+MLIMIT = 10 * 10 ** 9 # 10 GB RAM limit
 setrlimit(RLIMIT_DATA, (MLIMIT, MLIMIT))
 sys.setrecursionlimit(100000)
 
 t = 4
 d = 8
-#hanoi = TowersOfHanoi(t, d)
+hanoi = TowersOfHanoi(t, d)
 #solution = hanoi.blds(TowersOfHanoi.distanceHeuristic, 100, 1000000)
-#solution = hanoi.astar(TowersOfHanoi.distanceHeuristic)
-#if solution:
-#    _, solved = solution
-#    print("SOLUTION: ", len(solved.moves), "steps")
-#    s = TowersOfHanoi(t, d)
-#    for m in solved.moves:
-#        s.move_inplace(*m)
-#        s.display()
-#else:
-#    print("NO SOLUTION FOUND")
-
-f = open("files/problems4.txt", "r")
-input = f.readlines()
-f.close()
-problems = [NPuzzle.read_from_line(line) for line in input]
-solution = problems[0].beamSearch(100, NPuzzle.heuristic_manhattan, 100000000)
-
+solution = hanoi.astar(TowersOfHanoi.distanceHeuristic)
 if solution:
     _, solved = solution
     print("SOLUTION: ", len(solved.moves), "steps")
-    solved.display_moves()
+    s = TowersOfHanoi(t, d)
+    for m in solved.moves:
+        s.move_inplace(*m)
+        s.display()
 else:
     print("NO SOLUTION FOUND")
 
+ntests = 4
+file_names = ['files/problems4-easy.txt', 'files/problems5-easy.txt', 'files/problems6-easy.txt']
+print('START')
+#for file_name, size in zip(file_names, [100000, 500000, 1000000]):
+#    f = open(file_name, "r")
+#    input = f.readlines()
+#    f.close()
+#    problems = [NPuzzle.read_from_line(line) for line in input]
+#    algs = {'astar': (NPuzzle.astar, [NPuzzle.heuristic_manhattan]),
+#            'beamB1': (NPuzzle.beamSearch, [1, NPuzzle.heuristic_manhattan, size]),
+#            'beamB10': (NPuzzle.beamSearch, [10, NPuzzle.heuristic_manhattan, size]),
+#            'beamB50': (NPuzzle.beamSearch, [50, NPuzzle.heuristic_manhattan, size]),
+#            'beamB100': (NPuzzle.beamSearch, [100, NPuzzle.heuristic_manhattan, size]),
+#            'beamB500': (NPuzzle.beamSearch, [500, NPuzzle.heuristic_manhattan, size]),
+#            'beamB1000': (NPuzzle.beamSearch, [1000, NPuzzle.heuristic_manhattan, size])
+#    }
+#
+#    results = {}
+#    for (algname, v) in algs.items():
+#        f, args = v
+#        for i in range(len(problems)):
+#            k = file_name + '_test' + str(i+1) + '_' + algname
+#            print('TEST ' + k)
+#            results[k] = {'cost': [], 'visited': [], 'time': []}
+#            for t in range(ntests):
+#                start = time.time()
+#                solution = f(problems[i], *args)
+#                end = time.time()
+#                if solution:
+#                    visited, cost, solved = solution
+#                    results[k]['cost'].append(cost)
+#                    results[k]['visited'].append(visited)
+#                    results[k]['time'].append(end - start)
+#                    print('SUCCESS', cost, visited, end - start)
+#                else:
+#                    results[k]['cost'].append(None)
+#                    results[k]['visited'].append(None)
+#                    results[k]['time'].append(None)
+#                    print('FAIL')
+#
+#            if None in results[k]['cost']:
+#                print('success rate:', len(list(filter(lambda x : x, results[k]['cost']))) / ntests)
+#            else:
+#                print(results[k])
+#                print('mean cost:', mean(results[k]['cost']))
+#                print('variance cost:', variance(results[k]['cost']))
+#                print('mean visited:', mean(results[k]['visited']))
+#                print('variance visited:', variance(results[k]['visited']))
+#                print('mean time:', mean(results[k]['time']))
+#                print('variance time:', variance(results[k]['time']))
+#                print('---')

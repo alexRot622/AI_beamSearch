@@ -1,0 +1,655 @@
+TEST files/problems4-easy.txt_test1_astar
+mean cost: 40
+variance cost: 0
+mean visited: 249638
+variance visited: 0
+mean time: 4.455576837062836
+variance time: 0.00425430179201669
+TEST files/problems4-easy.txt_test2_astar
+mean cost: 33
+variance cost: 0
+mean visited: 128754
+variance visited: 0
+mean time: 2.1901774406433105
+variance time: 0.000418493405618392
+TEST files/problems4-easy.txt_test3_astar
+mean cost: 46
+variance cost: 0
+mean visited: 4717854
+variance visited: 0
+mean time: 99.02557635307312
+variance time: 1.1472161658931554
+TEST files/problems4-easy.txt_test4_astar
+mean cost: 30
+variance cost: 0
+mean visited: 18154
+variance visited: 0
+mean time: 0.2775370478630066
+variance time: 5.248346397479509e-06
+TEST files/problems4-easy.txt_test5_astar
+mean cost: 42
+variance cost: 0
+mean visited: 1707652
+variance visited: 0
+mean time: 34.66614896059036
+variance time: 0.3061009388079346
+TEST files/problems4-easy.txt_test1_beamB1
+success rate: 0.0
+TEST files/problems4-easy.txt_test2_beamB1
+success rate: 0.0
+TEST files/problems4-easy.txt_test3_beamB1
+success rate: 0.0
+TEST files/problems4-easy.txt_test4_beamB1
+success rate: 0.0
+TEST files/problems4-easy.txt_test5_beamB1
+success rate: 0.0
+TEST files/problems4-easy.txt_test1_beamB10
+mean cost: 118
+variance cost: 0
+mean visited: 1151
+variance visited: 0
+mean time: 0.024576008319854736
+variance time: 1.219945554945904e-07
+TEST files/problems4-easy.txt_test2_beamB10
+mean cost: 1025
+variance cost: 0
+mean visited: 10143
+variance visited: 0
+mean time: 0.22295814752578735
+variance time: 5.0803158098725966e-05
+TEST files/problems4-easy.txt_test3_beamB10
+mean cost: 846
+variance cost: 0
+mean visited: 8351
+variance visited: 0
+mean time: 0.17643886804580688
+variance time: 1.0641696377433618e-06
+TEST files/problems4-easy.txt_test4_beamB10
+mean cost: 224
+variance cost: 0
+mean visited: 2207
+variance visited: 0
+mean time: 0.04987990856170654
+variance time: 0.00016241075538421987
+TEST files/problems4-easy.txt_test5_beamB10
+mean cost: 372
+variance cost: 0
+mean visited: 3679
+variance visited: 0
+mean time: 0.07381778955459595
+variance time: 7.815433396748024e-08
+TEST files/problems4-easy.txt_test1_beamB50
+mean cost: 70
+variance cost: 0
+mean visited: 3287
+variance visited: 0
+mean time: 0.0632510781288147
+variance time: 1.9508393715265507e-07
+TEST files/problems4-easy.txt_test2_beamB50
+mean cost: 377
+variance cost: 0
+mean visited: 18427
+variance visited: 0
+mean time: 0.3794593811035156
+variance time: 0.00015231122737683714
+TEST files/problems4-easy.txt_test3_beamB50
+mean cost: 62
+variance cost: 0
+mean visited: 2839
+variance visited: 0
+mean time: 0.05623537302017212
+variance time: 6.064034844636504e-07
+TEST files/problems4-easy.txt_test4_beamB50
+mean cost: 34
+variance cost: 0
+mean visited: 1469
+variance visited: 0
+mean time: 0.028872191905975342
+variance time: 5.068588867137199e-08
+TEST files/problems4-easy.txt_test5_beamB50
+mean cost: 924
+variance cost: 0
+mean visited: 45443
+variance visited: 0
+mean time: 1.014810025691986
+variance time: 8.589539562819937e-05
+TEST files/problems4-easy.txt_test1_beamB100
+mean cost: 106
+variance cost: 0
+mean visited: 10013
+variance visited: 0
+mean time: 0.200065016746521
+variance time: 5.588560535822277e-07
+TEST files/problems4-easy.txt_test2_beamB100
+mean cost: 105
+variance cost: 0
+mean visited: 9860
+variance visited: 0
+mean time: 0.20309078693389893
+variance time: 7.894266648615182e-05
+TEST files/problems4-easy.txt_test3_beamB100
+mean cost: 64
+variance cost: 0
+mean visited: 5766
+variance visited: 0
+mean time: 0.11431300640106201
+variance time: 3.6109889833824127e-07
+TEST files/problems4-easy.txt_test4_beamB100
+mean cost: 32
+variance cost: 0
+mean visited: 2647
+variance visited: 0
+mean time: 0.05333000421524048
+variance time: 9.475153840791487e-07
+TEST files/problems4-easy.txt_test5_beamB100
+mean cost: 304
+variance cost: 0
+mean visited: 29524
+variance visited: 0
+mean time: 0.6176197528839111
+variance time: 2.0537635919026798e-05
+TEST files/problems4-easy.txt_test1_beamB500
+mean cost: 42
+variance cost: 0
+mean visited: 17352
+variance visited: 0
+mean time: 0.36019057035446167
+variance time: 2.129451473346459e-05
+TEST files/problems4-easy.txt_test2_beamB500
+mean cost: 43
+variance cost: 0
+mean visited: 17721
+variance visited: 0
+mean time: 0.36431312561035156
+variance time: 1.3821434019215909e-05
+TEST files/problems4-easy.txt_test3_beamB500
+mean cost: 50
+variance cost: 0
+mean visited: 20715
+variance visited: 0
+mean time: 0.42328375577926636
+variance time: 9.256454381064335e-06
+TEST files/problems4-easy.txt_test4_beamB500
+mean cost: 30
+variance cost: 0
+mean visited: 11107
+variance visited: 0
+mean time: 0.22794359922409058
+variance time: 5.419824688601693e-06
+TEST files/problems4-easy.txt_test5_beamB500
+mean cost: 58
+variance cost: 0
+mean visited: 25093
+variance visited: 0
+mean time: 0.5234258770942688
+variance time: 6.828445080486745e-06
+TEST files/problems4-easy.txt_test1_beamB1000
+mean cost: 40
+variance cost: 0
+mean visited: 31665
+variance visited: 0
+mean time: 0.6714924573898315
+variance time: 4.3977385397890124e-05
+TEST files/problems4-easy.txt_test2_beamB1000
+mean cost: 33
+variance cost: 0
+mean visited: 24664
+variance visited: 0
+mean time: 0.5167080163955688
+variance time: 1.2603107942747252e-05
+TEST files/problems4-easy.txt_test3_beamB1000
+mean cost: 52
+variance cost: 0
+mean visited: 42434
+variance visited: 0
+mean time: 0.8996133208274841
+variance time: 2.1331721365906258e-05
+TEST files/problems4-easy.txt_test4_beamB1000
+mean cost: 30
+variance cost: 0
+mean visited: 21240
+variance visited: 0
+mean time: 0.45178914070129395
+variance time: 4.36407625178011e-05
+TEST files/problems4-easy.txt_test5_beamB1000
+mean cost: 46
+variance cost: 0
+mean visited: 37500
+variance visited: 0
+mean time: 0.8019401431083679
+variance time: 2.16159333443026e-05
+TEST files/problems5-easy.txt_test1_astar
+mean cost: 36
+variance cost: 0
+mean visited: 179438
+variance visited: 0
+mean time: 3.874673008918762
+variance time: 0.015833456353542868
+TEST files/problems5-easy.txt_test2_astar
+mean cost: 35
+variance cost: 0
+mean visited: 12173
+variance visited: 0
+mean time: 0.23067432641983032
+variance time: 6.628860901969347e-06
+TEST files/problems5-easy.txt_test3_astar
+mean cost: 30
+variance cost: 0
+mean visited: 7065
+variance visited: 0
+mean time: 0.12740188837051392
+variance time: 1.5515783076125444e-06
+TEST files/problems5-easy.txt_test4_astar
+mean cost: 39
+variance cost: 0
+mean visited: 125262
+variance visited: 0
+mean time: 2.4979315400123596
+variance time: 0.0005068417822779262
+TEST files/problems5-easy.txt_test5_astar
+mean cost: 28
+variance cost: 0
+mean visited: 8895
+variance visited: 0
+mean time: 0.1595017910003662
+variance time: 2.6247994355799165e-06
+TEST files/problems5-easy.txt_test1_beamB1
+success rate: 0.0
+TEST files/problems5-easy.txt_test2_beamB1
+success rate: 0.0
+TEST files/problems5-easy.txt_test3_beamB1
+success rate: 0.0
+TEST files/problems5-easy.txt_test4_beamB1
+success rate: 0.0
+TEST files/problems5-easy.txt_test5_beamB1
+success rate: 0.0
+TEST files/problems5-easy.txt_test1_beamB10
+mean cost: 6312
+variance cost: 0
+mean visited: 62648
+variance visited: 0
+mean time: 2.970318913459778
+variance time: 0.00010355219548803991
+TEST files/problems5-easy.txt_test2_beamB10
+mean cost: 44781
+variance cost: 0
+mean visited: 444381
+variance visited: 0
+mean time: 81.94554632902145
+variance time: 0.0135413315679358
+TEST files/problems5-easy.txt_test3_beamB10
+mean cost: 5336
+variance cost: 0
+mean visited: 52897
+variance visited: 0
+mean time: 2.325835108757019
+variance time: 2.7830592633411775e-06
+TEST files/problems5-easy.txt_test4_beamB10
+success rate: 0.0
+TEST files/problems5-easy.txt_test5_beamB10
+success rate: 0.0
+TEST files/problems5-easy.txt_test1_beamB50
+mean cost: 62
+variance cost: 0
+mean visited: 2901
+variance visited: 0
+mean time: 0.082722008228302
+variance time: 4.284195161593137e-08
+TEST files/problems5-easy.txt_test2_beamB50
+mean cost: 35
+variance cost: 0
+mean visited: 1543
+variance visited: 0
+mean time: 0.04505467414855957
+variance time: 1.9013970131709357e-06
+TEST files/problems5-easy.txt_test3_beamB50
+mean cost: 888
+variance cost: 0
+mean visited: 43711
+variance visited: 0
+mean time: 1.3664462566375732
+variance time: 1.3247016947085892e-06
+TEST files/problems5-easy.txt_test4_beamB50
+mean cost: 423
+variance cost: 0
+mean visited: 20718
+variance visited: 0
+mean time: 0.6165788173675537
+variance time: 9.146170858305899e-06
+TEST files/problems5-easy.txt_test5_beamB50
+mean cost: 1176
+variance cost: 0
+mean visited: 57907
+variance visited: 0
+mean time: 1.8596237897872925
+variance time: 1.2186198811529418e-06
+TEST files/problems5-easy.txt_test1_beamB100
+mean cost: 86
+variance cost: 0
+mean visited: 8091
+variance visited: 0
+mean time: 0.23500102758407593
+variance time: 4.571824940550566e-06
+TEST files/problems5-easy.txt_test2_beamB100
+mean cost: 35
+variance cost: 0
+mean visited: 3012
+variance visited: 0
+mean time: 0.08757209777832031
+variance time: 3.236524056167885e-08
+TEST files/problems5-easy.txt_test3_beamB100
+mean cost: 332
+variance cost: 0
+mean visited: 32306
+variance visited: 0
+mean time: 0.9790739417076111
+variance time: 1.0640876036897376e-05
+TEST files/problems5-easy.txt_test4_beamB100
+mean cost: 517
+variance cost: 0
+mean visited: 50597
+variance visited: 0
+mean time: 1.5818780660629272
+variance time: 8.518374935799026e-07
+TEST files/problems5-easy.txt_test5_beamB100
+mean cost: 472
+variance cost: 0
+mean visited: 46037
+variance visited: 0
+mean time: 1.4300580620765686
+variance time: 1.7206832723104526e-06
+TEST files/problems5-easy.txt_test1_beamB500
+mean cost: 38
+variance cost: 0
+mean visited: 15744
+variance visited: 0
+mean time: 0.47017282247543335
+variance time: 1.436794208586889e-05
+TEST files/problems5-easy.txt_test2_beamB500
+mean cost: 35
+variance cost: 0
+mean visited: 14056
+variance visited: 0
+mean time: 0.41884857416152954
+variance time: 2.1390487001819263e-05
+TEST files/problems5-easy.txt_test3_beamB500
+mean cost: 30
+variance cost: 0
+mean visited: 11901
+variance visited: 0
+mean time: 0.3577283024787903
+variance time: 1.1632996399650134e-05
+TEST files/problems5-easy.txt_test4_beamB500
+mean cost: 75
+variance cost: 0
+mean visited: 34091
+variance visited: 0
+mean time: 1.0160090327262878
+variance time: 9.396870600160886e-07
+TEST files/problems5-easy.txt_test5_beamB500
+mean cost: 28
+variance cost: 0
+mean visited: 10549
+variance visited: 0
+mean time: 0.3153993487358093
+variance time: 3.13386455275122e-06
+TEST files/problems5-easy.txt_test1_beamB1000
+mean cost: 38
+variance cost: 0
+mean visited: 30506
+variance visited: 0
+mean time: 0.9214760661125183
+variance time: 1.243045022173798e-05
+TEST files/problems5-easy.txt_test2_beamB1000
+mean cost: 35
+variance cost: 0
+mean visited: 27220
+variance visited: 0
+mean time: 0.8203583359718323
+variance time: 9.856240557345094e-06
+TEST files/problems5-easy.txt_test3_beamB1000
+mean cost: 30
+variance cost: 0
+mean visited: 22852
+variance visited: 0
+mean time: 0.6951552629470825
+variance time: 5.3507865800384025e-06
+TEST files/problems5-easy.txt_test4_beamB1000
+mean cost: 39
+variance cost: 0
+mean visited: 31847
+variance visited: 0
+mean time: 0.9685165882110596
+variance time: 1.2802214276537901e-05
+TEST files/problems5-easy.txt_test5_beamB1000
+mean cost: 28
+variance cost: 0
+mean visited: 20286
+variance visited: 0
+mean time: 0.6187077760696411
+variance time: 4.687521387343925e-06
+TEST files/problems6-easy.txt_test1_astar
+mean cost: 14
+variance cost: 0
+mean visited: 72
+variance visited: 0
+mean time: 0.0016551017761230469
+variance time: 7.131954286402712e-10
+TEST files/problems6-easy.txt_test2_astar
+mean cost: 14
+variance cost: 0
+mean visited: 185
+variance visited: 0
+mean time: 0.0043798089027404785
+variance time: 2.028225291420919e-09
+TEST files/problems6-easy.txt_test3_astar
+mean cost: 15
+variance cost: 0
+mean visited: 68
+variance visited: 0
+mean time: 0.0015602707862854004
+variance time: 4.596500957632088e-10
+TEST files/problems6-easy.txt_test4_astar
+mean cost: 9
+variance cost: 0
+mean visited: 35
+variance visited: 0
+mean time: 0.0007988214492797852
+variance time: 2.9704475916029577e-10
+TEST files/problems6-easy.txt_test5_astar
+mean cost: 17
+variance cost: 0
+mean visited: 348
+variance visited: 0
+mean time: 0.00835329294204712
+variance time: 3.7803668343864656e-09
+TEST files/problems6-easy.txt_test1_beamB1
+success rate: 0.0
+TEST files/problems6-easy.txt_test2_beamB1
+success rate: 0.0
+TEST files/problems6-easy.txt_test3_beamB1
+success rate: 0.0
+TEST files/problems6-easy.txt_test4_beamB1
+mean cost: 9
+variance cost: 0
+mean visited: 9
+variance visited: 0
+mean time: 0.00035303831100463867
+variance time: 1.5102822696159515e-10
+TEST files/problems6-easy.txt_test5_beamB1
+success rate: 0.0
+TEST files/problems6-easy.txt_test1_beamB10
+mean cost: 14
+variance cost: 0
+mean visited: 119
+variance visited: 0
+mean time: 0.004204511642456055
+variance time: 1.3307044355315156e-09
+TEST files/problems6-easy.txt_test2_beamB10
+mean cost: 14
+variance cost: 0
+mean visited: 123
+variance visited: 0
+mean time: 0.004400134086608887
+variance time: 8.337982156566189e-10
+TEST files/problems6-easy.txt_test3_beamB10
+mean cost: 15
+variance cost: 0
+mean visited: 127
+variance visited: 0
+mean time: 0.004800677299499512
+variance time: 2.1792952035563456e-08
+TEST files/problems6-easy.txt_test4_beamB10
+mean cost: 9
+variance cost: 0
+mean visited: 70
+variance visited: 0
+mean time: 0.0026353001594543457
+variance time: 2.14930177359444e-09
+TEST files/problems6-easy.txt_test5_beamB10
+mean cost: 17
+variance cost: 0
+mean visited: 147
+variance visited: 0
+mean time: 0.005232453346252441
+variance time: 5.461705162209304e-10
+TEST files/problems6-easy.txt_test1_beamB50
+mean cost: 14
+variance cost: 0
+mean visited: 507
+variance visited: 0
+mean time: 0.01888793706893921
+variance time: 1.9943679300619504e-08
+TEST files/problems6-easy.txt_test2_beamB50
+mean cost: 14
+variance cost: 0
+mean visited: 536
+variance visited: 0
+mean time: 0.019759953022003174
+variance time: 1.0036416142611415e-09
+TEST files/problems6-easy.txt_test3_beamB50
+mean cost: 15
+variance cost: 0
+mean visited: 540
+variance visited: 0
+mean time: 0.020826756954193115
+variance time: 1.5331517981091263e-08
+TEST files/problems6-easy.txt_test4_beamB50
+mean cost: 9
+variance cost: 0
+mean visited: 261
+variance visited: 0
+mean time: 0.009920835494995117
+variance time: 1.2187986916008715e-09
+TEST files/problems6-easy.txt_test5_beamB50
+mean cost: 17
+variance cost: 0
+mean visited: 662
+variance visited: 0
+mean time: 0.024790644645690918
+variance time: 1.6505170682042566e-07
+TEST files/problems6-easy.txt_test1_beamB100
+mean cost: 14
+variance cost: 0
+mean visited: 947
+variance visited: 0
+mean time: 0.03647035360336304
+variance time: 7.052981250884234e-08
+TEST files/problems6-easy.txt_test2_beamB100
+mean cost: 14
+variance cost: 0
+mean visited: 994
+variance visited: 0
+mean time: 0.037851154804229736
+variance time: 3.534792985722864e-07
+TEST files/problems6-easy.txt_test3_beamB100
+mean cost: 15
+variance cost: 0
+mean visited: 1003
+variance visited: 0
+mean time: 0.03914320468902588
+variance time: 8.651066802182564e-07
+TEST files/problems6-easy.txt_test4_beamB100
+mean cost: 9
+variance cost: 0
+mean visited: 456
+variance visited: 0
+mean time: 0.018144309520721436
+variance time: 5.1830639336003514e-08
+TEST files/problems6-easy.txt_test5_beamB100
+mean cost: 17
+variance cost: 0
+mean visited: 1250
+variance visited: 0
+mean time: 0.047276437282562256
+variance time: 1.5566992317417316e-07
+TEST files/problems6-easy.txt_test1_beamB500
+mean cost: 14
+variance cost: 0
+mean visited: 3850
+variance visited: 0
+mean time: 0.151350200176239
+variance time: 2.04312703525981e-06
+TEST files/problems6-easy.txt_test2_beamB500
+mean cost: 14
+variance cost: 0
+mean visited: 4158
+variance visited: 0
+mean time: 0.16251063346862793
+variance time: 2.96041347761881e-06
+TEST files/problems6-easy.txt_test3_beamB500
+mean cost: 15
+variance cost: 0
+mean visited: 4176
+variance visited: 0
+mean time: 0.16766923666000366
+variance time: 9.49829138600459e-07
+TEST files/problems6-easy.txt_test4_beamB500
+mean cost: 9
+variance cost: 0
+mean visited: 1404
+variance visited: 0
+mean time: 0.05815809965133667
+variance time: 9.479980652334538e-09
+TEST files/problems6-easy.txt_test5_beamB500
+mean cost: 17
+variance cost: 0
+mean visited: 5343
+variance visited: 0
+mean time: 0.20656388998031616
+variance time: 2.4494288624055116e-06
+TEST files/problems6-easy.txt_test1_beamB1000
+mean cost: 14
+variance cost: 0
+mean visited: 6955
+variance visited: 0
+mean time: 0.2798258066177368
+variance time: 1.1412101476556321e-05
+TEST files/problems6-easy.txt_test2_beamB1000
+mean cost: 14
+variance cost: 0
+mean visited: 7579
+variance visited: 0
+mean time: 0.29921549558639526
+variance time: 1.8092570764830878e-05
+TEST files/problems6-easy.txt_test3_beamB1000
+mean cost: 15
+variance cost: 0
+mean visited: 7614
+variance visited: 0
+mean time: 0.3096557855606079
+variance time: 1.6565850633772545e-05
+TEST files/problems6-easy.txt_test4_beamB1000
+mean cost: 9
+variance cost: 0
+mean visited: 2048
+variance visited: 0
+mean time: 0.08623874187469482
+variance time: 9.214715911790942e-07
+TEST files/problems6-easy.txt_test5_beamB1000
+mean cost: 17
+variance cost: 0
+mean visited: 9969
+variance visited: 0
+mean time: 0.39089155197143555
+variance time: 7.668281303570742e-06
